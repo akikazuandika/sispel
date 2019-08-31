@@ -4277,9 +4277,6 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.table-top-countries tbody tr:last-child td {
-    border-bottom: none;
-}
 
 .table-wrap {
     display: -webkit-box;
@@ -4323,14 +4320,6 @@ section {
     margin-bottom: 30px;
 }
 
-.table-style1 .table tr:last-child td {
-    border-bottom: none;
-}
-
-.table-style1 .table tr td:last-child {
-    padding-right: 30px;
-}
-
 .table-style1 .table td {
     font-size: 14px;
     color: #808080;
@@ -4359,10 +4348,6 @@ section {
     padding-bottom: 33px;
     padding-left: 40px;
     padding-right: 10px;
-}
-
-.table-data .table tr td:last-child {
-    padding-right: 24px;
 }
 
 .table-data tbody tr:hover td .more {
@@ -4458,15 +4443,6 @@ section {
     color: #808080;
 }
 
-.table-top-campaign.table tr td:last-child {
-    color: #4272d7;
-    text-align: right;
-}
-
-.table-top-campaign.table tr:last-child td {
-    border-bottom: none;
-}
-
 @media (min-width: 1200px) {
     .table-responsive-data2 {
         overflow: visible;
@@ -4521,15 +4497,6 @@ section {
     }
 }
 
-.table-data2.table tbody tr td:last-child {
-    -webkit-border-top-right-radius: 3px;
-    -moz-border-radius-topright: 3px;
-    border-top-right-radius: 3px;
-    -webkit-border-bottom-right-radius: 3px;
-    -moz-border-radius-bottomright: 3px;
-    border-bottom-right-radius: 3px;
-    padding-right: 35px;
-}
 
 .table-data2.table tbody td {
     font-size: 14px;
@@ -4685,15 +4652,6 @@ section {
     border-top-right-radius: 3px;
 }
 
-.table-data3 thead tr th:last-child {
-    text-align: right;
-    padding-right: 50px;
-}
-
-.table-data3 tbody tr td:last-child {
-    text-align: right;
-    padding-right: 50px;
-}
 
 .table-data3 tbody tr {
     border-left: 1px solid #e5e5e5;

@@ -10,7 +10,8 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['title'] = "Dashboard | Admin";
+		$this->load->view('index', $data);
 	}
 
 	public function logout()
