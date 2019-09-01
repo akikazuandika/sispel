@@ -11,6 +11,7 @@ class Admin extends CI_Controller {
 	public function index()
 	{
 		$data['title'] = "Dashboard | Admin";
+		$data['active'] = "dashboard";
 		$this->load->view('part/header', $data);
 		$this->load->view('index', $data);
 		$this->load->view('part/footer', $data);

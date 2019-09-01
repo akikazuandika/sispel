@@ -1,5 +1,3 @@
-$.noConflict();
-
 jQuery(document).ready(function($) {
 
 	"use strict";
@@ -25,9 +23,6 @@ jQuery(document).ready(function($) {
 		$('.search-trigger').parent('.header-left').removeClass('open');
 	});
 
-	$('.equal-height').matchHeight({
-		property: 'max-height'
-	});
 
 	// var chartsheight = $('.flotRealtime2').height();
 	// $('.traffic-chart').css('height', chartsheight-122);
