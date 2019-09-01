@@ -28,7 +28,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong>Tambah Kamar</strong>
+                        <strong>Tambah Pengasuh</strong>
                     </div>
                     <div class="card-body card-block">
                         <div class="row form-group">
@@ -52,7 +52,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Daftar Kamar</strong>
+                        <strong class="card-title">Daftar Pengasuh</strong>
                     </div>
                     <div class="card-body">
                         <table class="table">

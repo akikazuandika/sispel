@@ -58,6 +58,9 @@
                     <li <?php if ($active == "staff") echo 'class="active"'; ?>>
                         <a href="/admin/staff"><i class="menu-icon fa fa-users"></i>Pengasuh </a>
                     </li>
+                    <li <?php if ($active == "violation") echo 'class="active"'; ?>>
+                        <a href="/admin/violation"><i class="menu-icon fa fa-times-circle"></i>Pelanggaran </a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
