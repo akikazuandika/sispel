@@ -16,6 +16,30 @@
 </div>
 <!-- /#right-panel -->
 
+<script>
+    $().toast({
+        delay : 5000
+    })
+
+    function toastSuccess(content) {
+        $(".toast-header .mr-auto").html(content)
+        $(".toast-header").css("background-color", "#51A351").css("opacity", "0.8")
+        $(".toast-header").css("color", "white")
+        $('.toast').toast('show')
+    }
+
+    function toastError(content) {
+        $(".toast-header .mr-auto").html(content)
+        $(".toast-header").css("background-color", "#BD362F").css("opacity", "0.8")
+        $(".toast-header").css("color", "white")
+        $('.toast').toast('show')
+    }
+
+    function hideToastr() {
+        $('.toast').toast('hide')
+    }
+</script>
+
 <!--  Chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
 

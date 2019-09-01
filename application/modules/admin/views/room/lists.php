@@ -92,23 +92,23 @@
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th class="text-center"  scope="col">Kode</th>
+                                    <th class="text-center" scope="col">Kode</th>
                                     <th class="text-center" scope="col">Kapasitas</th>
                                     <th class="text-center" scope="col">Kode Gedung</th>
                                     <th class="text-center" scope="col">Nomor Ruang</th>
                                     <th class="text-center" scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody id="listKamar" >
+                            <tbody id="listKamar">
                                 <?php foreach ($rooms as $key => $item) { ?>
-                                    <tr id="<?= $item['id'] ?>" >
-                                        <td class="text-center" ><?= $item['id'] ?></td>
-                                        <td id="capacity_<?= $item['id'] ?>" class="text-center" ><?= $item['capacity'] ?></td>
-                                        <td class="text-center" ><?= $item['code'] ?></td>
-                                        <td class="text-center" ><?= $item['nomor'] ?></td>
-                                        <td style="width:200px" class="text-center" >
-                                            <span id="edit_<?= $item['id'] ?>" class="btn btn-primary" onclick='edit("<?= $item["id"] ?>")' >Edit</span>
-                                            <span class="btn btn-danger" onclick='del("<?= $item["id"] ?>")' >Hapus</span>
+                                    <tr id="<?= $item['id'] ?>">
+                                        <td class="text-center"><?= $item['id'] ?></td>
+                                        <td id="capacity_<?= $item['id'] ?>" class="text-center"><?= $item['capacity'] ?></td>
+                                        <td class="text-center"><?= $item['code'] ?></td>
+                                        <td class="text-center"><?= $item['nomor'] ?></td>
+                                        <td style="width:200px" class="text-center">
+                                            <span id="edit_<?= $item['id'] ?>" class="btn btn-primary" onclick='edit("<?= $item["id"] ?>")'>Edit</span>
+                                            <span class="btn btn-danger" onclick='del("<?= $item["id"] ?>")'>Hapus</span>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -151,11 +151,11 @@
         $.ajax({
             method: "POST",
             url: "/admin/room/doAddRoom",
-            data : {
-                capacity : capacity,
-                code : code,
-                roomNumber : roomNumber,
-                buildCode : buildCode,
+            data: {
+                capacity: capacity,
+                code: code,
+                roomNumber: roomNumber,
+                buildCode: buildCode,
             },
             beforeSend: function() {
                 $("#btnAddRoom").html(`Loading...`).attr("disabled", true)
@@ -177,6 +177,9 @@
                         </tr>
                         `
                     )
+                    toastSuccess("Sukses Tambah Kamar")
+                }else{
+                    toastError("Gagal Tambah Kamar")
                 }
             }
         })
@@ -186,17 +189,17 @@
         $.ajax({
             method: "POST",
             url: "/admin/room/doDeleteRoom",
-            data : {
-                id : id
+            data: {
+                id: id
             },
             success: function(res) {
                 if (res == "true") {
-                    alert("Sukses hapus");
+                    toastSuccess("Sukses Hapus Kamar")
                     $("#" + id).remove()
-                }else{
-                    alert("Hapus gagal");
+                } else {
+                    toastError("Hapus Kamar Gagal")
                 }
-                
+
             }
         })
     }
@@ -208,21 +211,21 @@
     }
 
     function save(id) {
-        var capacity = $("#capacity_" + id + " input").val();       
+        var capacity = $("#capacity_" + id + " input").val();
         $.ajax({
             method: "POST",
             url: "/admin/room/doUpdateRoom",
-            data : {
-                id : id,
-                capacity : capacity
+            data: {
+                id: id,
+                capacity: capacity
             },
             success: function(res) {
                 if (res == "true") {
-                    alert("Sukses Update");
+                    toastSuccess("Sukses Update Kamar")
                     $("#edit_" + id).html("Edit").attr("onclick", `edit('${id}')`)
                     $("#capacity_" + id).html(capacity)
-                }else{
-                    alert("Update gagal");
+                } else {
+                    toastError("Update Kamar Gagal")
                 }
             }
         })
