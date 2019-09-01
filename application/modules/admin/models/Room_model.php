@@ -15,7 +15,7 @@ class Room_model extends CI_Model {
 
     public function getAll()
     {
-        $rooms = $this->db->get('kamar');
+        $rooms = $this->db->query('select kamar.*, users_pengasuh.name from kamar join users_pengasuh on kamar.chairman = users_pengasuh.id');
 
         if ($rooms->num_rows() > 0) {
             return $rooms->result_array();

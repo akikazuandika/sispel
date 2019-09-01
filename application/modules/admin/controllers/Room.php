@@ -7,6 +7,7 @@ class Room extends CI_Controller {
 		parent::__construct();
 		isAdminLoggedIn();
 		$this->load->model("room_model", "room");
+		$this->load->model("staff_model", "staff");
     }
 
 	public function index()
@@ -14,6 +15,10 @@ class Room extends CI_Controller {
 		$data['rooms'] = $this->room->getAll();
 		if ($data['rooms'] == false) {
 			$data['rooms'] = array();
+		}
+		$data['staff'] = $this->staff->getAll();
+		if ($data['staff'] == false) {
+			$data['staff'] = array();
 		}
 		$data['title'] = "Daftar Kamar | Admin";
 		$data['active'] = "room";
@@ -28,8 +33,12 @@ class Room extends CI_Controller {
 			'capacity' => $this->input->post("capacity"),
 			'id' => $this->input->post("code"),
 			'nomor' => $this->input->post("roomNumber"),
-			'code' => $this->input->post("buildCode"),
+			'code' => $this->input->post("buildCode")
 		);
+
+		if ($_POST['chairman'] != "") {
+			$data['chairman'] = $_POST['chairman'];
+		}
 
 		if ($this->room->create($data)) {
 			echo "true";

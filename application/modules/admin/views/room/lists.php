@@ -74,6 +74,17 @@
                             </div>
                         </div>
                         <div class="row form-group">
+                            <div class="col col-md-2"><label for="chairman" class=" form-control-label">Ketua Kamar</label></div>
+                            <div class="col-12 col-md-2">
+                                <select name="select" id="chairman" class="form-control">
+                                    <option value="-">Pilih</option>
+                                    <?php foreach ($staff as $key => $value) { ?>
+                                        <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
                             <div class="col col-md-2"><label for="capacity" class=" form-control-label">Kapasitas</label></div>
                             <div class="col-12 col-md-2"><input type="number" onchange="changeCode()" onkeypress="changeCode()" id="capacity" placeholder="10" class="form-control"></div>
                         </div>
@@ -94,8 +105,7 @@
                                 <tr>
                                     <th class="text-center" scope="col">Kode</th>
                                     <th class="text-center" scope="col">Kapasitas</th>
-                                    <th class="text-center" scope="col">Kode Gedung</th>
-                                    <th class="text-center" scope="col">Nomor Ruang</th>
+                                    <th class="text-center" scope="col">Ketua Kamar</th>
                                     <th class="text-center" scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -104,8 +114,7 @@
                                     <tr id="<?= $item['id'] ?>">
                                         <td class="text-center"><?= $item['id'] ?></td>
                                         <td id="capacity_<?= $item['id'] ?>" class="text-center"><?= $item['capacity'] ?></td>
-                                        <td class="text-center"><?= $item['code'] ?></td>
-                                        <td class="text-center"><?= $item['nomor'] ?></td>
+                                        <td class="text-center"><?= $item['name'] ?></td>
                                         <td style="width:200px" class="text-center">
                                             <span id="edit_<?= $item['id'] ?>" class="btn btn-primary" onclick='edit("<?= $item["id"] ?>")'>Edit</span>
                                             <span class="btn btn-danger" onclick='del("<?= $item["id"] ?>")'>Hapus</span>
@@ -147,6 +156,7 @@
         var buildCode = $("#buildCode") == "-" ? "" : $("#buildCode").val();
         var roomNumber = $("#roomNumber") == "-" ? "" : $("#roomNumber").val();
         var capacity = parseInt($("#capacity").val());
+        var chairman = $("#chairman") == "-" ? "" : $("#chairman").val();
 
         $.ajax({
             method: "POST",
@@ -156,6 +166,7 @@
                 code: code,
                 roomNumber: roomNumber,
                 buildCode: buildCode,
+                chairman : chairman
             },
             beforeSend: function() {
                 $("#btnAddRoom").html(`Loading...`).attr("disabled", true)
@@ -168,8 +179,7 @@
                         <tr id='${code}' >
                             <td class='text-center'>${code}</td>
                             <td id='capacity_${code}' class='text-center'>${capacity}</td>
-                            <td class='text-center'>${buildCode}</td>
-                            <td class='text-center'>${roomNumber}</td>
+                            <td id='chairman_${chairman}' class='text-center'>${$("#chairman option:selected").text()}</td>
                             <td style='width:160px' class='text-center' >
                                 <span class="btn btn-primary" onclick='edit("${code}")' >Edit</span>
                                 <span class="btn btn-danger" onclick='del("${code}")' >Hapus</span>
