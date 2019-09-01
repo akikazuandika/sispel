@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <div onclick="hideToastr()" class="toast" style="position: fixed; top: 0; right: 0; margin-right:30px; margin-top:50px; z-index:9999; width:300px" data-delay="60000">
+    <div onclick="hideToastr()" class="toast" style="position: fixed; top: 0; right: 0; margin-right:30px; margin-top:50px; z-index:9999; width:300px" data-delay="1500">
         <div class="toast-header" style="height:50px">
             <strong class="mr-auto">Hello, world! This is a toast message.</strong>
         </div>
@@ -54,6 +54,9 @@
                     </li>
                     <li <?php if ($active == "room") echo 'class="active"'; ?>>
                         <a href="/admin/room"><i class="menu-icon fa fa-hotel"></i>Kamar </a>
+                    </li>
+                    <li <?php if ($active == "staff") echo 'class="active"'; ?>>
+                        <a href="/admin/staff"><i class="menu-icon fa fa-users"></i>Pengasuh </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
