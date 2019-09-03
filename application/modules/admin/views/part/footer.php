@@ -38,6 +38,42 @@
     function hideToastr() {
         $('.toast').toast('hide')
     }
+
+    function changePassword() {
+        $.ajax({
+            url : "/admin/doChangePassword",
+            method : "POST",
+            data : {
+                oldPass : $("#oldPass").val(),
+                newPass : $("#newPass").val(),
+                confirmNewPass : $("#confirmNewPass").val(),
+                username : '<?= $_SESSION["username"]?>'
+            },
+            success : function(res){
+                switch (res) {
+                    case '0':
+                        toastError("Pastikan konfirmasi password sama dengan password baru")
+                        break;
+
+                    case '1':
+                        toastError("Password sekarang salah")
+                        break;
+
+                    case '2':
+                        toastSuccess("Sukses ganti password")
+                        $('#modal-default').modal('toggle')
+                        break;
+
+                    default:
+                        toastError("Error")
+                        break;
+                }
+                $("#oldPass").val('')
+                $("#newPass").val('')
+                $("#confirmNewPass").val('')
+            }
+        })
+    }
 </script>
 
 <!--  Chart js -->

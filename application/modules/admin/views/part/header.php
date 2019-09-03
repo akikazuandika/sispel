@@ -61,6 +61,15 @@
                     <li <?php if ($active == "violation") echo 'class="active"'; ?>>
                         <a href="/admin/violation"><i class="menu-icon fa fa-times-circle"></i>Pelanggaran </a>
                     </li>
+                    <li <?php if ($active == "santri") echo 'class="active"'; ?>>
+                        <a href="/admin/santri"><i class="menu-icon fa fa-users"></i>Santri </a>
+                    </li>
+                    <li>
+                        <a style="cursor:pointer" data-toggle="modal" data-target="#modal-default"><i class="menu-icon fa fa-gears"></i>Ganti Password</a>
+                    </li>
+                    <li>
+                        <a href="/admin/logout"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -107,3 +116,36 @@
             </div>
         </header>
         <!-- /#header -->
+
+        <div class="modal fade" id="modal-default">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title">Ganti Password</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div class="form-group">
+                              <label for="oldPass">Password Sekarang</label>
+                              <input type="password" class="form-control" id="oldPass" placeholder="Password Sekarang...">
+                          </div>
+                          <div class="form-group">
+                              <label for="newPass">Password Baru</label>
+                              <input type="password" class="form-control" id="newPass" placeholder="Password Baru...">
+                          </div>
+                          <div class="form-group">
+                              <label for="confirmNewPass">Konfirmasi Password Baru</label>
+                              <input type="password" class="form-control" id="confirmNewPass" placeholder="Konfirmasi Password Baru...">
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                          <button type="button" onclick="changePassword()" class="btn btn-primary">Save changes</button>
+                      </div>
+                  </div>
+                  <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
+          <!-- /.modal -->

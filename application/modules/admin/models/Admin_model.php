@@ -19,4 +19,18 @@ class Admin_model extends CI_Model {
         $user = $this->db->get('users_admin');
         return ($this->db->affected_rows() < 1) ? false : $user->result_array()[0];
     }
+
+    public function changePassword($username, $pass)
+    {
+        $this->db->where('username', $username);
+        $this->db->update('users_admin', array(
+            'password' => $pass
+        ));
+        if ($this->db->affected_rows() >= 1) {
+            return true;
+        }else{
+            return null;
+        }
+    }
+
 }
