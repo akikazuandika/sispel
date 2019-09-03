@@ -24,6 +24,17 @@ class Room_model extends CI_Model {
         }
     }
 
+    public function getDetail($id)
+    {
+        $rooms = $this->db->query("select kamar.*, users_pengasuh.name from kamar join users_pengasuh on kamar.chairman = users_pengasuh.id where kamar.id='$id'");
+
+        if ($rooms->num_rows() > 0) {
+            return $rooms->result_array()[0];
+        }else{
+            return false;
+        }
+    }
+
     public function delete($id)
     {
         $this->db->where('id', $id)->delete('kamar');
