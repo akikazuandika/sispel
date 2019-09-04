@@ -8,3 +8,33 @@
          }
       }
    }
+
+   if (!function_exists('isWaliLoggedIn')) {
+      function isWaliLoggedIn()
+      {
+         if (!isset($_SESSION['username']) || !isset($_SESSION['name'])) {
+            session_destroy();
+            header("Location:/wali/login");
+         }
+      }
+   }
+
+   if (!function_exists('isSantriLoggedIn')) {
+      function isSantriLoggedIn()
+      {
+         if (!isset($_SESSION['username']) || !isset($_SESSION['name'])) {
+            session_destroy();
+            header("Location:/santri/login");
+         }
+      }
+   }
+
+   if (!function_exists('isStaffLoggedIn')) {
+      function isStaffLoggedIn()
+      {
+         if (!isset($_SESSION['username']) || !isset($_SESSION['name'])) {
+            session_destroy();
+            header("Location:/staff/login");
+         }
+      }
+   }
