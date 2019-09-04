@@ -39,4 +39,14 @@ class Wali_model extends CI_Model {
         }
     }
 
+    public function getViolationSantri()
+    {
+        $violation = $this->db->query("select pelanggaran.* from pelanggaran join users_wali on users_wali.idSantri = pelanggaran.santriId where users_wali.username=" . $_SESSION['username'] . " ORDER BY pelanggaran.createdAt DESC ");
+        if ($violation->num_rows() > 0) {
+            return $violation->result_array();
+        }else{
+            return false;
+        }
+    }
+
 }
