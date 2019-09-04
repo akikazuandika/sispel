@@ -12,6 +12,7 @@ class Wali extends CI_Controller {
 	{
 		$data['title'] = "Dashboard | Wali";
 		$data['active'] = "dashboard";
+		$data['info'] = $this->wali->getSantri();
 		$this->load->view('part/header', $data);
 		$this->load->view('index', $data);
 		$this->load->view('part/footer', $data);

@@ -28,4 +28,15 @@ class Wali_model extends CI_Model {
         }
     }
 
+    public function getSantri()
+    {
+        $santri = $this->db->query("select users_wali.*, users_santri.name as santriName, kamar.id as kamar, users_pengasuh.name as chairman from users_wali join users_santri on users_santri.idWali = users_wali.id join kamar on users_santri.kamar = kamar.id join users_pengasuh on kamar.chairman = users_pengasuh.id where users_wali.username=" . $_SESSION['username']);
+
+        if ($santri->num_rows() > 0) {
+            return $santri->result_array()[0];
+        }else{
+            return false;
+        }
+    }
+
 }
