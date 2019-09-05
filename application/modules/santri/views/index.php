@@ -61,7 +61,7 @@
                                             <th style="text-align:left">Deskripsi</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="listSantri">
+                                    <tbody id="listViolation">
                                         <?php foreach ($violation as $key => $item) { ?>
                                             <tr>
                                                 <td class="serial"><?= $key + 1 ?></td>
@@ -69,7 +69,7 @@
                                                 <td>
                                                     <?php
                                                         if ($item['type'] == 3) {
-                                                            echo '<span class="badge badge-complete">Ringan</span>';
+                                                            echo '<span class="badge badge-success">Ringan</span>';
                                                         } else if ($item['type'] == 2) {
                                                             echo '<span class="badge badge-warning">Sedang</span>';
                                                         } else if ($item['type'] == 1) {
@@ -78,7 +78,7 @@
                                                         ?>
 
                                                 </td>
-                                                <td style="text-align:left"><span>wkwkkwkwkwkkwkw</span></td>
+                                                <td style="text-align:left"><span><?= $item['description'] ?></span></td>
                                             </tr>
                                         <?php } ?>
                                     </tbody>
