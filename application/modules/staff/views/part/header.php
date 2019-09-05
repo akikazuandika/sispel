@@ -50,13 +50,16 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li <?php if ($active == "dashboard") echo 'class="active"'; ?>>
-                        <a href="/santri"><i class="menu-icon fa fa-tachometer"></i>Dashboard </a>
+                        <a href="/staff"><i class="menu-icon fa fa-tachometer"></i>Dashboard </a>
+                    </li>
+                    <li <?php if ($active == "violation") echo 'class="active"'; ?>>
+                        <a href="/staff/violation"><i class="menu-icon fa fa-times-circle"></i>Pelanggaran </a>
                     </li>
                     <li>
                         <a style="cursor:pointer" data-toggle="modal" data-target="#modal-default"><i class="menu-icon fa fa-gears"></i>Ganti Password</a>
                     </li>
                     <li>
-                        <a href="/santri/logout"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
+                        <a href="/staff/logout"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
