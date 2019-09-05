@@ -85,35 +85,34 @@
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th class="text-center" scope="col">#</th>
-                                    <th class="text-center" scope="col">Santri</th>
-                                    <th class="text-center" scope="col">Kamar</th>
-                                    <th class="text-center" scope="col">Pengasuh</th>
-                                    <th class="text-center" scope="col">Tipe</th>
-                                    <th class="text-center" scope="col">Deskripsi</th>
-                                    <th class="text-center" scope="col">Tanggal</th>
+                                    <th style="width:200px" scope="col">Tanggal</th>
+                                    <th style="width:20px" scope="col">Tipe</th>
+                                    <th class="text-center" style="width:50px" scope="col">Kamar</th>
+                                    <th style="width:200px" scope="col">Pengasuh</th>
+                                    <th style="width:200px" scope="col">Santri</th>
+                                    <th scope="col">Deskripsi</th>
                                 </tr>
                             </thead>
-                            <tbody id="listStaff">
+                            <tbody id="listViolation">
                                 <?php foreach ($violation as $key => $item) { ?>
                                     <tr id="<?= $item['id'] ?>">
-                                        <td class="text-center"><?= $key + 1 ?></td>
-                                        <td class="text-center"><?= $item['santriName'] ?></td>
-                                        <td class="text-center"><?= $item['kamarId'] ?></td>
-                                        <td class="text-center"><?= $item['pengasuhName'] ?></td>
-                                        <td class="text-center">
+                                        <td><?= $item['createdAt'] ?></td>
+                                        <td>
                                             <?php
-                                             if ($item['type'] == 1) {
-                                                echo 'Berat';
-                                             }else if ($item['type'] == 2) {
-                                                echo 'Sedang';
-                                            }else if ($item['type'] == 3) {
-                                                echo 'Ringan';
-                                             }
-                                            ?>
+                                                if ($item['type'] == 3) {
+                                                    echo '<span class="badge badge-success">Ringan</span>';
+                                                } else if ($item['type'] == 2) {
+                                                    echo '<span class="badge badge-warning">Sedang</span>';
+                                                } else if ($item['type'] == 1) {
+                                                    echo '<span class="badge badge-danger">Berat</span>';
+                                                }
+                                                ?>
+
                                         </td>
-                                        <td class="text-center"><?= $item['description'] ?></td>
-                                        <td class="text-center"><?= $item['createdAt'] ?></td>
+                                        <td class="text-center"><?= $item['kamarId'] ?></td>
+                                        <td><?= $item['pengasuhName'] ?></td>
+                                        <td><?= $item['santriName'] ?></td>
+                                        <td><?= $item['description'] ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -158,10 +157,14 @@
 
     function addViolation() {
         var santri = $("#santri").val()
+        var santriName = $("#santri option:selected").text()
+        var chairmanName = $("#chairman").html()
         var chairmanId = $("#chairmanId").val()
         var room = $("#room").html()
         var type = $("#type").val()
         var desc = $("#desc").val()
+        var newDate = new Date()
+        var date = newDate.getFullYear() + "-" + newDate.getMonth() + "-" + newDate.getDate() + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds()
 
         $.ajax({
             method: "POST",
@@ -177,33 +180,31 @@
                 $("#btnAddViolation").html(`Loading...`).attr("disabled", true)
             },
             success: function(res) {
-                console.log(res);
-                
-                // $("#btnAddViolation").html(`Tambah`).attr("disabled", false)
-                // var total = $("#listStaff").children().length
-                // if (total == 0) {
-                //     total = 1
-                // } else {
-                //     total++
-                // }
-                // if (res != "false") {
-                //     $("#listStaff").append(
-                //         `
-                //         <tr id='${res}' >
-                //             <td class='text-center'>${total}</td>
-                //             <td id='name_${res}' class='text-center'>${name}</td>
-                //             <td id='username_${res}' class='text-center'>${username}</td>
-                //             <td style='width:160px' class='text-center' >
-                //                 <span class="btn btn-primary" onclick='edit("${res}")' >Edit</span>
-                //                 <span class="btn btn-danger" onclick='del("${res}")' >Hapus</span>
-                //             </td>
-                //         </tr>
-                //         `
-                //     )
-                //     toastSuccess("Sukses Tambah Staff")
-                // } else {
-                //     toastError("Gagal Tambah Staff")
-                // }
+                $("#btnAddViolation").html(`Tambah`).attr("disabled", false)
+                var total = $("#listViolation").children().length
+                if (total == 0) {
+                    total = 1
+                } else {
+                    total++
+                }
+                if (res != "false") {
+                    $("#listViolation").prepend(
+                        `
+                        <tr id='${res}' >
+                            <td>${date}</td>
+                            <td class='text-center'>${type == 1 ? '<span class="badge badge-danger">Berat</span>' : type == 2 ? '<span class="badge badge-warning">Sedang</span>' : type == 3 ? '<span class="badge badge-success">Ringan</span>' : null}</td>
+                            <td class='text-center'>${room}</td>
+                            <td>${chairmanName}</td>
+                            <td>${santriName}</td>
+                            <td>${desc}</td>
+                            
+                        </tr>
+                        `
+                    )
+                    toastSuccess("Sukses Tambah Pelanggaran")
+                } else {
+                    toastError("Gagal Tambah Pelanggaran")
+                }
             }
         })
     }
