@@ -85,35 +85,32 @@
                         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th class="text-center" scope="col">#</th>
-                                    <th class="text-center" scope="col">Santri</th>
-                                    <th class="text-center" scope="col">Kamar</th>
-                                    <th class="text-center" scope="col">Pengasuh</th>
-                                    <th class="text-center" scope="col">Tipe</th>
-                                    <th class="text-center" scope="col">Deskripsi</th>
-                                    <th class="text-center" scope="col">Tanggal</th>
+                                    <th style="width:200px" scope="col">Tanggal</th>
+                                    <th style="width:20px" scope="col">Tipe</th>
+                                    <th class="text-center" style="width:50px" scope="col">Kamar</th>
+                                    <th style="width:200px" scope="col">Santri</th>
+                                    <th scope="col">Deskripsi</th>
                                 </tr>
                             </thead>
                             <tbody id="listViolation">
                                 <?php foreach ($violation as $key => $item) { ?>
                                     <tr id="<?= $item['id'] ?>">
-                                        <td class="text-center"><?= $key + 1 ?></td>
-                                        <td class="text-center"><?= $item['santriName'] ?></td>
-                                        <td class="text-center"><?= $item['kamarId'] ?></td>
-                                        <td class="text-center"><?= $item['pengasuhName'] ?></td>
-                                        <td class="text-center">
+                                        <td> <span><?= $item['createdAt'] ?></span> </td>
+                                        <td>
                                             <?php
-                                             if ($item['type'] == 1) {
-                                                echo 'Berat';
-                                             }else if ($item['type'] == 2) {
-                                                echo 'Sedang';
-                                            }else if ($item['type'] == 3) {
-                                                echo 'Ringan';
-                                             }
-                                            ?>
+                                                if ($item['type'] == 3) {
+                                                    echo '<span class="badge badge-success">Ringan</span>';
+                                                } else if ($item['type'] == 2) {
+                                                    echo '<span class="badge badge-warning">Sedang</span>';
+                                                } else if ($item['type'] == 1) {
+                                                    echo '<span class="badge badge-danger">Berat</span>';
+                                                }
+                                                ?>
+
                                         </td>
-                                        <td class="text-center"><?= $item['description'] ?></td>
-                                        <td class="text-center"><?= $item['createdAt'] ?></td>
+                                        <td class="text-center" ><?= $item['kamarId'] ?></td>
+                                        <td><?= $item['santriName'] ?></td>
+                                        <td style="text-align:left"><span><?= $item['description'] ?></span></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -192,13 +189,12 @@
                     $("#listViolation").prepend(
                         `
                         <tr id='${res}' >
-                            <td class='text-center'>${total}</td>
-                            <td class='text-center'>${santriName}</td>
+                            <td>${date}</td>
+                            <td class='text-center'>${type == 1 ? '<span class="badge badge-danger">Berat</span>' : type == 2 ? '<span class="badge badge-warning">Sedang</span>' : type == 3 ? '<span class="badge badge-success">Ringan</span>' : null}</td>
                             <td class='text-center'>${room}</td>
-                            <td class='text-center'>${chairmanName}</td>
-                            <td class='text-center'>${type == 1 ? "Berat" : type == 2 ? "Sedang" : type == 3 ? "Ringan" : null}</td>
-                            <td class='text-center'>${desc}</td>
-                            <td class='text-center'>${date}</td>
+                            <td>${santriName}</td>
+                            <td>${desc}</td>
+                            
                         </tr>
                         `
                     )
