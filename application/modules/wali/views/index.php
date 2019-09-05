@@ -61,7 +61,7 @@
                                             <th style="text-align:left">Deskripsi</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="listSantri">
+                                    <tbody id="listViolation">
                                         <?php foreach ($violation as $key => $item) { ?>
                                             <tr>
                                                 <td class="serial"><?= $key + 1 ?></td>
