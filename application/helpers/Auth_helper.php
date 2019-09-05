@@ -32,7 +32,7 @@
    if (!function_exists('isStaffLoggedIn')) {
       function isStaffLoggedIn()
       {
-         if (!isset($_SESSION['username']) || !isset($_SESSION['name'])) {
+         if (!isset($_SESSION['username']) || !isset($_SESSION['name']) || !isset($_SESSION['staff']) || $_SESSION['staff'] != true ) {
             session_destroy();
             header("Location:/staff/login");
          }
