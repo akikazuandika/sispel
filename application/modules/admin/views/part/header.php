@@ -52,11 +52,14 @@
                     <li <?php if ($active == "dashboard") echo 'class="active"'; ?>>
                         <a href="/admin"><i class="menu-icon fa fa-tachometer"></i>Dashboard </a>
                     </li>
+                    <li <?php if ($active == "staff") echo 'class="active"'; ?>>
+                        <a href="/admin/staff"><i class="menu-icon fa fa-users"></i>Ketua Kamar </a>
+                    </li>
                     <li <?php if ($active == "room") echo 'class="active"'; ?>>
                         <a href="/admin/room"><i class="menu-icon fa fa-hotel"></i>Kamar </a>
                     </li>
                     <li <?php if ($active == "staff") echo 'class="active"'; ?>>
-                        <a href="/admin/staff"><i class="menu-icon fa fa-users"></i>Ketua Kamar </a>
+                        <a href="/admin/security"><i class="menu-icon fa fa-users"></i>Keamanan</a>
                     </li>
                     <li <?php if ($active == "violation") echo 'class="active"'; ?>>
                         <a href="/admin/violation"><i class="menu-icon fa fa-times-circle"></i>Pelanggaran </a>
