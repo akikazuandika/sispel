@@ -17,7 +17,7 @@ class Santri_model extends CI_Model {
     public function getAll()
     {
         $this->db->order_by('createdAt','DESC');
-        $santri = $this->db->query("select users_santri.*, users_pengasuh.name as pengasuhName, users_pengasuh.id as pengasuhId, users_wali.name as waliName, users_wali.id as waliId from users_santri join kamar on users_santri.kamar = kamar.id join users_pengasuh on kamar.chairman = users_pengasuh.id  join users_wali on users_santri.idWali = users_wali.id");
+        $santri = $this->db->query("select users_santri.*, users_chairman.name as pengasuhName, users_chairman.id as pengasuhId, users_wali.name as waliName, users_wali.id as waliId from users_santri join kamar on users_santri.kamar = kamar.id join users_chairman on kamar.chairman = users_chairman.id  join users_wali on users_santri.idWali = users_wali.id");
 
         if ($santri->num_rows() > 0) {
             return $santri->result_array();
@@ -28,7 +28,7 @@ class Santri_model extends CI_Model {
 
     public function getDetail($id)
     {
-        $santri = $this->db->query("select users_santri.*, users_pengasuh.name as pengasuhName, users_pengasuh.id as pengasuhId from users_santri join kamar on users_santri.kamar = kamar.id join users_pengasuh on kamar.chairman = users_pengasuh.id where users_santri.id = '$id'");
+        $santri = $this->db->query("select users_santri.*, users_chairman.name as pengasuhName, users_chairman.id as pengasuhId from users_santri join kamar on users_santri.kamar = kamar.id join users_chairman on kamar.chairman = users_chairman.id where users_santri.id = '$id'");
         
         if ($santri->num_rows() > 0) {
             return $santri->result_array()[0];

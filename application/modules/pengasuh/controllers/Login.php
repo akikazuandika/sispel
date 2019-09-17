@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model("keamanan_model", "keamanan");
+		$this->load->model("pengasuh_model", "pengasuh");
     }
 
 	public function index()
@@ -17,21 +17,21 @@ class Login extends CI_Controller {
 	{
 		$username = $this->input->post("username");
 		$password = $this->input->post("password");
-		$data = $this->keamanan->login($username);
+		$data = $this->pengasuh->login($username);
 
 		if ($data == null) {
 			echo 'Username tidak terdaftar';
 		}else{
 			if (!password_verify($password, $data['password'])) {
 				$this->session->set_flashdata('error', 'Username atau password salah');
-				header("Location:/keamanan/login");
+				header("Location:/pengasuh/login");
 			}else{
 				$this->session->set_userdata(array(
 					'username' => $data['username'],
-					'security' => true,
+					'pengasuh' => true,
 					'name' => $data['name']
 				));
-				header("Location:/keamanan");
+				header("Location:/pengasuh");
 			}
 		}
 	}

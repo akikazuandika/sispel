@@ -50,25 +50,25 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li <?php if ($active == "dashboard") echo 'class="active"'; ?>>
-                        <a href="/keamanan"><i class="menu-icon fa fa-tachometer"></i>Dashboard </a>
+                        <a href="/pengasuh"><i class="menu-icon fa fa-tachometer"></i>Dashboard </a>
                     </li>
                     <li <?php if ($active == "room") echo 'class="active"'; ?>>
-                        <a href="/keamanan/room"><i class="menu-icon fa fa-hotel"></i>Kamar </a>
+                        <a href="/pengasuh/room"><i class="menu-icon fa fa-hotel"></i>Kamar </a>
                     </li>
                     <li <?php if ($active == "staff") echo 'class="active"'; ?>>
-                        <a href="/keamanan/staff"><i class="menu-icon fa fa-users"></i>Pengasuh </a>
+                        <a href="/pengasuh/staff"><i class="menu-icon fa fa-users"></i>Pengasuh </a>
                     </li>
                     <li <?php if ($active == "violation") echo 'class="active"'; ?>>
-                        <a href="/keamanan/violation"><i class="menu-icon fa fa-times-circle"></i>Pelanggaran </a>
+                        <a href="/pengasuh/violation"><i class="menu-icon fa fa-times-circle"></i>Pelanggaran </a>
                     </li>
                     <li <?php if ($active == "santri") echo 'class="active"'; ?>>
-                        <a href="/keamanan/santri"><i class="menu-icon fa fa-users"></i>Santri </a>
+                        <a href="/pengasuh/santri"><i class="menu-icon fa fa-users"></i>Santri </a>
                     </li>
                     <li>
                         <a style="cursor:pointer" data-toggle="modal" data-target="#modal-default"><i class="menu-icon fa fa-gears"></i>Ganti Password</a>
                     </li>
                     <li>
-                        <a href="/keamanan/logout"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
+                        <a href="/pengasuh/logout"><i class="menu-icon fa fa-sign-out"></i>Logout </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -98,7 +98,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="/images/keamanan.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="/images/admin.jpg" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">

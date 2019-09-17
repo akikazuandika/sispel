@@ -5,7 +5,7 @@ class Violation extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		isSecurityLoggedIn();
+		isPengasuhLoggedIn();
         $this->load->model("violation_model", "violation");
         $this->load->model("santri_model", "santri");
     }

@@ -5,7 +5,7 @@ class Staff extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		isSecurityLoggedIn();
+		isPengasuhLoggedIn();
 		$this->load->model("staff_model", "staff");
     }
 

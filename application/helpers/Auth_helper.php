@@ -48,3 +48,13 @@
          }
       }
    }
+
+   if (!function_exists('isPengasuhLoggedIn')) {
+      function isPengasuhLoggedIn()
+      {
+         if (!isset($_SESSION['username']) || !isset($_SESSION['name']) || !isset($_SESSION['pengasuh']) || $_SESSION['pengasuh'] != true ) {
+            session_destroy();
+            header("Location:/pengasuh/login");
+         }
+      }
+   }

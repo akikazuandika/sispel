@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Keamanan extends CI_Controller {
+class Pengasuh extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		isSecurityLoggedIn();
-		$this->load->model("keamanan_model", "keamanan");
+		isPengasuhLoggedIn();
+		$this->load->model("pengasuh_model", "pengasuh");
     }
 
 	public function index()
@@ -25,13 +25,13 @@ class Keamanan extends CI_Controller {
 		$confirmNewPass = $this->input->post("confirmNewPass");
 		$username = $this->input->post("username");
 
-		$data = $this->keamanan->login($username);
+		$data = $this->pengasuh->login($username);
 		if (!password_verify($oldPass, $data['password'])) {
 			echo '1';
 		}else if ($newPass != $confirmNewPass) {
 			echo '0';
 		}else{
-			if ($this->keamanan->changePassword($username, password_hash($newPass, PASSWORD_BCRYPT))) {
+			if ($this->pengasuh->changePassword($username, password_hash($newPass, PASSWORD_BCRYPT))) {
 				echo '2';
 			};
 		}
@@ -40,7 +40,7 @@ class Keamanan extends CI_Controller {
 	public function logout()
 	{
 		session_destroy();
-		header("Location:/keamanan/login");
+		header("Location:/pengasuh/login");
 	}
 
 }

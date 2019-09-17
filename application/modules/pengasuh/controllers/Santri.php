@@ -5,7 +5,7 @@ class Santri extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		isSecurityLoggedIn();
+		isPengasuhLoggedIn();
 		$this->load->model("santri_model", "santri");
 		$this->load->model("wali_model", "wali");
 		$this->load->model("room_model", "room");

@@ -36,7 +36,7 @@
                     </a>
                 </div>
                 <div class="login-form" >
-                    <form action="/keamanan/login/doLogin" method="POST">
+                    <form action="/pengasuh/login/doLogin" method="POST">
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" class="form-control" placeholder="Username.." name="username">
