@@ -30,7 +30,7 @@ class Santri_model extends CI_Model {
 
     public function getSantri()
     {
-        $santri = $this->db->query("select users_santri.*, users_wali.name as waliName, users_wali.username as waliPhone, kamar.id as kamar, users_pengasuh.name as chairman from users_santri join users_wali on users_wali.idSantri = users_santri.id join kamar on users_santri.kamar = kamar.id join users_pengasuh on kamar.chairman = users_pengasuh.id where users_santri.username='" . $_SESSION['username'] . "'");
+        $santri = $this->db->query("select users_santri.*, users_wali.name as waliName, users_wali.username as waliPhone, kamar.id as kamar, users_chairman.name as chairman from users_santri join users_wali on users_wali.idSantri = users_santri.id join kamar on users_santri.kamar = kamar.id join users_chairman on kamar.chairman = users_chairman.id where users_santri.username='" . $_SESSION['username'] . "'");
 
         if ($santri->num_rows() > 0) {
             return $santri->result_array()[0];
