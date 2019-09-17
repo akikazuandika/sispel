@@ -141,7 +141,7 @@
         var id = $("#santri").val()
         $.ajax({
             method: "POST",
-            url: `/admin/santri/getDetailSantri?id=${id}`,
+            url: `/keamanan/santri/getDetailSantri?id=${id}`,
             success: function(res) {
                 if (res != "false") {
                     res = JSON.parse(res)
@@ -168,7 +168,7 @@
 
         $.ajax({
             method: "POST",
-            url: "/admin/violation/doAddViolation",
+            url: "/keamanan/violation/doAddViolation",
             data: {
                 santriId: santri,
                 chairmanId: chairmanId,
@@ -212,7 +212,7 @@
     function del(id) {
         $.ajax({
             method: "POST",
-            url: "/admin/staff/doDeleteStaff",
+            url: "/keamanan/staff/doDeleteStaff",
             data: {
                 id: id
             },
@@ -240,7 +240,7 @@
         var username = $("#username_" + id + " input").val();
         $.ajax({
             method: "POST",
-            url: "/admin/staff/doUpdateStaff",
+            url: "/keamanan/staff/doUpdateStaff",
             data: {
                 id: id,
                 name: name,
