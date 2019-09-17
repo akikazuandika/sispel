@@ -126,7 +126,7 @@
                             <td id='name_${res}' class='text-center'>${name}</td>
                             <td id='username_${res}' class='text-center'>${username}</td>
                             <td style='width:160px' class='text-center' >
-                                <span class="btn btn-primary" onclick='edit("${res}")' >Edit</span>
+                                <span id='edit_${res}' class="btn btn-primary" onclick='edit("${res}")' >Edit</span>
                                 <span class="btn btn-danger" onclick='del("${res}")' >Hapus</span>
                             </td>
                         </tr>
