@@ -13,7 +13,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
-                            <li class="active">Keamanan</li>
+                            <li class="active">Pengasuh</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong>Tambah Keamanan</strong>
+                        <strong>Tambah Pengasuh</strong>
                     </div>
                     <div class="card-body card-block">
                         <div class="row form-group">
@@ -52,7 +52,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Daftar Keamanan</strong>
+                        <strong class="card-title">Daftar Pengasuh</strong>
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -65,7 +65,7 @@
                                 </tr>
                             </thead>
                             <tbody id="listStaff">
-                                <?php foreach ($security as $key => $item) { ?>
+                                <?php foreach ($pengasuh as $key => $item) { ?>
                                     <tr id="<?= $item['id'] ?>">
                                         <td class="text-center"><?= $key + 1 ?></td>
                                         <td id="name_<?= $item['id'] ?>" class="text-center"><?= $item['name'] ?></td>
@@ -101,7 +101,7 @@
 
         $.ajax({
             method: "POST",
-            url: "/admin/security/doAddStaff",
+            url: "/admin/pengasuh/doAddStaff",
             data: {
                 name: name,
                 username: username,
@@ -132,9 +132,9 @@
                         </tr>
                         `
                     )
-                    toastSuccess("Sukses Tambah Keamanan")
+                    toastSuccess("Sukses Tambah Pengasuh")
                 }else{
-                    toastError("Gagal Tambah Keamanan")
+                    toastError("Gagal Tambah Pengasuh")
                 }
             }
         })
@@ -143,16 +143,16 @@
     function del(id) {
         $.ajax({
             method: "POST",
-            url: "/admin/security/doDeleteStaff",
+            url: "/admin/pengasuh/doDeleteStaff",
             data: {
                 id: id
             },
             success: function(res) {
                 if (res == "true") {
-                    toastSuccess("Sukses Hapus Keamanan")
+                    toastSuccess("Sukses Hapus Pengasuh")
                     $("#" + id).remove()
                 } else {
-                    toastError("Hapus Keamanan Gagal")
+                    toastError("Hapus Pengasuh Gagal")
                 }
 
             }
@@ -172,7 +172,7 @@
         var username = $("#username_" + id + " input").val();
         $.ajax({
             method: "POST",
-            url: "/admin/security/doUpdateStaff",
+            url: "/admin/pengasuh/doUpdateStaff",
             data: {
                 id: id,
                 name: name,
@@ -180,12 +180,12 @@
             },
             success: function(res) {
                 if (res == "true") {
-                    toastSuccess("Sukses Update Keamanan")
+                    toastSuccess("Sukses Update Pengasuh")
                     $("#edit_" + id).html("Edit").attr("onclick", `edit('${id}')`)
                     $("#name_" + id).html(name)
                     $("#username_" + id).html(username)
                 } else {
-                    toastError("Update Keamanan Gagal")
+                    toastError("Update Pengasuh Gagal")
                 }
             }
         })
