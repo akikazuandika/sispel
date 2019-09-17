@@ -56,7 +56,10 @@
                         <a href="/pengasuh/room"><i class="menu-icon fa fa-hotel"></i>Kamar </a>
                     </li>
                     <li <?php if ($active == "staff") echo 'class="active"'; ?>>
-                        <a href="/pengasuh/staff"><i class="menu-icon fa fa-users"></i>Pengasuh </a>
+                        <a href="/pengasuh/staff"><i class="menu-icon fa fa-users"></i>Ketua Kamar </a>
+                    </li>
+                    <li <?php if ($active == "security") echo 'class="active"'; ?>>
+                        <a href="/pengasuh/security"><i class="menu-icon fa fa-users"></i>Keamanan</a>
                     </li>
                     <li <?php if ($active == "violation") echo 'class="active"'; ?>>
                         <a href="/pengasuh/violation"><i class="menu-icon fa fa-times-circle"></i>Pelanggaran </a>

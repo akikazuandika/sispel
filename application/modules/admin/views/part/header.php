@@ -61,7 +61,7 @@
                     <li <?php if ($active == "staff") echo 'class="active"'; ?>>
                         <a href="/admin/pengasuh"><i class="menu-icon fa fa-users"></i>Pengasuh</a>
                     </li>
-                    <li <?php if ($active == "staff") echo 'class="active"'; ?>>
+                    <li <?php if ($active == "security") echo 'class="active"'; ?>>
                         <a href="/admin/security"><i class="menu-icon fa fa-users"></i>Keamanan</a>
                     </li>
                     <li <?php if ($active == "violation") echo 'class="active"'; ?>>
