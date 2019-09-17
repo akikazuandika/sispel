@@ -38,3 +38,13 @@
          }
       }
    }
+
+   if (!function_exists('isSecurityLoggedIn')) {
+      function isSecurityLoggedIn()
+      {
+         if (!isset($_SESSION['username']) || !isset($_SESSION['name']) || !isset($_SESSION['security']) || $_SESSION['security'] != true ) {
+            session_destroy();
+            header("Location:/keamanan/login");
+         }
+      }
+   }
