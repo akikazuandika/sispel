@@ -16,7 +16,7 @@ class Violation_model extends CI_Model {
 
     public function getAll()
     {
-        $violation = $this->db->query("select pelanggaran.*, users_pengasuh.name as pengasuhName, users_santri.name as santriName from pelanggaran join kamar on pelanggaran.kamarId = kamar.id join users_pengasuh on pelanggaran.chairmanId = users_pengasuh.id join users_santri on pelanggaran.santriId = users_santri.id");
+        $violation = $this->db->query("select pelanggaran.*, users_chairman.name as pengasuhName, users_santri.name as santriName from pelanggaran join kamar on pelanggaran.kamarId = kamar.id join users_chairman on pelanggaran.chairmanId = users_chairman.id join users_santri on pelanggaran.santriId = users_santri.id");
 
         if ($violation->num_rows() > 0) {
             return $violation->result_array();
