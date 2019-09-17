@@ -13,7 +13,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
-                            <li class="active">Pengasuh</li>
+                            <li class="active">Ketua Kamar</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Daftar Pengasuh</strong>
+                        <strong class="card-title">Daftar Ketua Kamar</strong>
                     </div>
                     <div class="card-body">
                         <table class="table">

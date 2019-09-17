@@ -37,7 +37,7 @@
                                     <th style="width:200px" scope="col">Tanggal</th>
                                     <th style="width:20px" scope="col">Tipe</th>
                                     <th class="text-center" style="width:50px" scope="col">Kamar</th>
-                                    <th style="width:200px" scope="col">Pengasuh</th>
+                                    <th style="width:200px" scope="col">Ketua Kamar</th>
                                     <th style="width:200px" scope="col">Santri</th>
                                     <th scope="col">Deskripsi</th>
                                 </tr>
